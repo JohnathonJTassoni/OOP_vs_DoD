@@ -8,21 +8,20 @@ OOP_Dictionary::OOP_Dictionary()
 
 bool OOP_Dictionary::add(std::string word)
 {
-    auto map_it = data_map.find(word);
 
-    if(map_it != data_map.end())
+    for(auto& pair : data_map)
     {
-        map_it->second++;
-        return true;
+        if(pair.first.compare(word) == 0)
+        {
+            pair.second++;
+            return true;
+        }
+    
     }
-    else
-    {
-        data_map.insert(std::pair<std::string, int>(word, INIT_VALUE));
-        count++;
-        return true;
-    }
+    data_map.insert(std::pair<std::string, int>(word, INIT_VALUE));
+    count++;
+    return true;
 
-    return false;
 }
 
 bool OOP_Dictionary::find(const std::string word)
@@ -176,7 +175,7 @@ int main()
   
     for(size_t i = 0; i < wordList.size(); i++)
     {
-        OOP.add(wordList[i]);
+        //OOP.add(wordList[i]);
         manager.add(DoD.Keys, DoD.Values, DoD.count, wordList[i]);
     }
 
