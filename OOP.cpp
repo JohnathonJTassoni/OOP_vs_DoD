@@ -51,20 +51,10 @@ int main()
         shapes.emplace_back(ShapeEntity("Shape Name", "Colour"));
     }
 
-    auto timer = std::chrono::high_resolution_clock::now();
-    std::chrono::time_point<std::chrono::system_clock> first_time = timer;
-    
     for(auto& shape : shapes)
     {
         std::cout << "Shape pos: " <<shape.pos.x << ", " << shape.pos.y << ", " << shape.pos.z << "\n";
     }
     
-    timer = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<float> deltaTime = timer - first_time;
-
-    std::cout << "**************************************\n";
-    std::cout << "Load Time: "<< (deltaTime.count()) << "\n";
-    std::cout << "**************************************\n";
-
     return EXIT_SUCCESS;
 }

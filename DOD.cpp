@@ -77,17 +77,7 @@ int main()
         Shapes.add_entity("Shape Name", "Colour");
     }
 
-    auto timer = std::chrono::high_resolution_clock::now();
-    std::chrono::time_point<std::chrono::system_clock> first_time = timer;
-    
     smanager.print_position(Shapes.pos, Shapes.count);
 
-    timer = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<float> deltaTime = timer - first_time;
-
-    std::cout << "**************************************\n";
-    std::cout << "Load Time: "<< (deltaTime.count()) << "\n";
-    std::cout << "**************************************\n";
-    
     return EXIT_SUCCESS;
 }
